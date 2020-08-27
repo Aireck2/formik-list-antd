@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import { FormTable2 } from "./components";
+import { FormTableCopy } from "./components";
 
 function App() {
   return (
     <div className="Container">
-      <FormTable2 />
+      <FormTableCopy />
     </div>
   );
 }
