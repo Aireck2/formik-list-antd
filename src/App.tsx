@@ -1,13 +1,13 @@
 import React from "react";
 import "./App.css";
-import { FormTableCopy } from "./components";
+import { FormArray } from "./components";
 
-function App() {
+const App = () => {
   return (
     <div className="Container">
-      <FormTableCopy />
+      <FormArray />
     </div>
   );
-}
+};
 
 export default App;
