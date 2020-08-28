@@ -4,33 +4,37 @@ import { FieldArray, Formik } from "formik";
 import { Form, Input, SubmitButton } from "formik-antd";
 import React, { useState } from "react";
 
-export const FormTableCopy: React.FC = () => {
+export const FormArray: React.FC = () => {
   const [state, setState] = useState();
-  const onSubmit = (values: any) => {
+
+  const toJson = (values: any) => {
     const result = values.table.reduce(function (r: any, e: any) {
       r[e.key] = e.value;
       return r;
     }, {});
-    setState(result);
-    console.log(result);
+    return result;
   };
+  
+  const onSubmit = (values: any) => {
+    setState(toJson(values));
+  };
+  
   const initialValues = {
     table: [],
   };
+  
   return (
     <>
       <Formik onSubmit={onSubmit} initialValues={initialValues}>
         {({ values }) => (
           <Form>
-            <p>Campos:</p>
+            <p>Fields:</p>
             <FieldArray
               name="table"
               render={(arrayHelpers) => (
                 <div>
                   {values.table.map((table, index) => (
                     <div key={index} className="FormItems">
-                      {/* <Field name={`table[${index}].key`} /> */}
-                      {/* <Field name={`table.${index}.value`} /> */}
                       <Form.Item name={`table[${index}].key`}>
                         <Input name={`table[${index}].key`}></Input>
                       </Form.Item>
