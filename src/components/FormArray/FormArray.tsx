@@ -3,6 +3,7 @@ import { Button } from "antd";
 import { FieldArray, Formik } from "formik";
 import { Form, Input, SubmitButton } from "formik-antd";
 import React, { useState } from "react";
+import { validationSchema } from "./validationSchema";
 
 export const FormArray: React.FC = () => {
   const [state, setState] = useState();
@@ -14,18 +15,22 @@ export const FormArray: React.FC = () => {
     }, {});
     return result;
   };
-  
+
   const onSubmit = (values: any) => {
     setState(toJson(values));
   };
-  
+
   const initialValues = {
     table: [],
   };
-  
+
   return (
     <>
-      <Formik onSubmit={onSubmit} initialValues={initialValues}>
+      <Formik
+        onSubmit={onSubmit}
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+      >
         {({ values }) => (
           <Form>
             <p>Fields:</p>
