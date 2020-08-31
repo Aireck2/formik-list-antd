@@ -7,10 +7,10 @@ To build and run this application locally, you'll need latest versions of Git on
 
 ```
 # Clone this repository
-$ git clone https://github.com/Aireck2/app.git
+$ git clone https://github.com/Aireck2/formik-list-antd.git
 
 # Go into the repository
-$ cd /
+$ cd /formik-list-antd
 
 # Install dependencies
 $ yarn
